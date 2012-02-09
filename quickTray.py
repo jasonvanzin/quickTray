@@ -257,4 +257,4 @@ if __name__ == '__main__':
 	# Function to be run upon closing the program. More-or-less a placeholder at the moment.
 	def bye(sysTrayIcon): print 'Bye, then.'
 	# Initalize the SysTrayIcon object and let's get this party started!
-	SysTrayIcon(icon, hover_text, menu_options, on_quit=bye, default_menu_index=1)
+	SysTrayIcon(icon, hover_text, menu_options, on_quit=bye, default_menu_index=0)
