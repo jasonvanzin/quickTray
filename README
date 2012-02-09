@@ -1,0 +1,52 @@
+quickTray
+----------
+quickTray is a program written for Windows in Python that creates a system tray icon providing quick access to
+shortcuts which you can define in the 'shortcuts' file.
+
+Using quickTray
+----------------
+The configuration syntax is as follows:
+	- Name of shortcut,command|parameter|parameter
+Example:
+	- Users directory,explorer|C:\Users
+
+To launch quickTray, simply double click the `quickTray.py` file in Explorer and Python will execute it.  There will
+	be a console window that launches with it this way.
+You can also compile a `quickTray.exe` file with py2exe using the included `setup.py` file. There will not be any
+	console window when launched as a .exe file.
+
+Files in this project
+----------------------
+quickTray.py
+	- The main source file for quickTray.
+setup.py
+	- A setup script for compiling this project with py2exe.
+README
+	- This readme file.
+shortcuts
+	- The configuration file for quickTray. This is needed for it to function.
+shortcut-icon.ico
+	- The icon file to be displayed in the system tray. You may replace this with whatever icon you'd like, but it
+	must retain the 'shortcut-icon.ico' filename, and it must stay in the same directory as quickTray.
+
+Required libraries
+-------------------
+To use quickTray you will need to have Python and PyWin32 installed. PyWin32 can be found here:
+	- http://sourceforge.net/projects/pywin32/
+If you would like to compile a standalone executable version, you must also install py2exe, found here:
+	- http://www.py2exe.org/
+Note that if you wish to use py2exe with the included setup.py file, you will have to be using the 32-bit versions
+	of Python and its libraries (even if you are on a 64-bit OS). This is due to the packaging options I have set
+	in the setup.py file, as they are not yet supported with the 64-bit version of Python.
+
+Compiling a standalone exe
+---------------------------
+To compile a standalone executable version of quickTray, simply run this command:
+	- python setup.py py2exe
+The resulting quickTray.exe file may be used on systems that do not have Python installed. Just be sure to keep the
+	`shortcuts` and `shortcut-icon.ico` files with it.
+
+Thanks / Mentions
+------------------
+The bulk of this project is based around the example code posted at:
+	- http://www.brunningonline.net/simon/blog/archives/001835.html
