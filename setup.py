@@ -33,7 +33,7 @@ class Target(object):
 
 data_files = []
 
-includes = ['win32api', 'win32con', 'win32gui_struct']
+includes = ['sip', 'PyQt4.QtGui', 'PyQt4.QtCore']
 excludes = ['_gtkagg', '_tkagg', 'bsddb', 'curses', 'email', 'pywin.debugger',
             'pywin.debugger.dbgcon', 'pywin.dialogs', 'tcl',
             'Tkconstants', 'Tkinter']
@@ -63,7 +63,7 @@ GUI2Exe_Target_1 = Target(
     bitmap_resources = bitmap_resources,
     other_resources = other_resources,
     dest_base = "quickTray",    
-    version = "0.1",
+    version = "0.2",
     company_name = "h4xful.net",
     copyright = "Open Source Ftw?",
     name = "quickTray Shortcut Launcher",
@@ -83,13 +83,13 @@ setup(
 
     data_files = data_files,
 
-    options = {"py2exe": {"compressed": 2, 
+    options = {"py2exe": {"compressed": 0, 
                           "optimize": 2,
                           "includes": includes,
                           "excludes": excludes,
                           "packages": packages,
                           "dll_excludes": dll_excludes,
-                          "bundle_files": 1,
+                          "bundle_files": 3,
                           "dist_dir": "dist",
                           "xref": False,
                           "skip_archive": False,
