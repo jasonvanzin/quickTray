@@ -86,8 +86,8 @@ if __name__ == "__main__":
 		fh = open('shortcuts','r')
 		lines = fh.readlines()
 		for line in lines:
-			line.replace("\r\n","")
-			line.replace("\n","")
+			line = line.replace("\r\n","")
+			line = line.replace("\n","")
 			items = line.split(',')
 			menu_options.append([str(items[0]), str(items[1])])
 		fh.close()
