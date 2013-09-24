@@ -1,7 +1,7 @@
 import subprocess
 import sys
 from functools import partial
-from PyQt4 import QtGui, QtCore
+from PySide import QtGui, QtCore
 
 class SystemTrayIcon(QtGui.QSystemTrayIcon):
 	def __init__(self, menuList, parent=None):
@@ -41,7 +41,7 @@ class SystemTrayIcon(QtGui.QSystemTrayIcon):
 				self.connect(newItems,QtCore.SIGNAL('triggered()'),partial(self.runCmdStr,str(item[1])))
 
 	def runCmdStr(self, str):
-		print str #debug
+		print(str) #debug
 		args = str.split('|')
 		cmd = []
 		for arg in args:
@@ -63,7 +63,7 @@ def non_string_iterable(obj):
 	except TypeError:
 		return False
 	else:
-		return not isinstance(obj, basestring)
+		return not isinstance(obj, str)
 
 if __name__ == "__main__":
 	app = QtGui.QApplication(sys.argv)
@@ -76,7 +76,7 @@ if __name__ == "__main__":
 			try:
 				subprocess.Popen('python quickTray.py')	# Assume we are running via python script if the .exe is not available.
 			except:
-				print "Could not reload program -- sorry!"	# Add better exception handling code here later?
+				print("Could not reload program -- sorry!")	# Add better exception handling code here later?
 		finally:
 			sysTrayIcon.appExit()	# Kill current program
 
@@ -92,7 +92,7 @@ if __name__ == "__main__":
 			menu_options.append([str(items[0]), str(items[1])])
 		fh.close()
 	except IOError as e:
-		print "Error! -- " + str(e)
+		print("Error! -- " + str(e))
 		menu_options = (('Could not load!', 0, 0),)
 	# Configuration menu.
 	menu_options.append(['Configuration', [['Edit Config', 'notepad|shortcuts'],['Reload Config', restartProgram]]])
